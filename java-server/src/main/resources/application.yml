@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: CHAINSQL-JAVA-SERVER
+
+server:
+  port: 8081
+
+chain:
+  root:
+    address: zHb9CJAWyB4zj91VRWn96DkukG4bwdtyTh
+    secret: xnoPBzXtMeMyMHUVTgbuqAfg1SUTb
+  ws: ws://localhost:6006
