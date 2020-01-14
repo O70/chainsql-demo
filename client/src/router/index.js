@@ -6,7 +6,7 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 const routes = [
-  { path: '/login', component: () => import('@/views/login/index') },
+  { path: '/login', name: 'Login', component: () => import('@/views/login/index') },
   {
     path: '/404',
     component: Layout,

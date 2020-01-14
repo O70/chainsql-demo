@@ -5,7 +5,7 @@
         <el-avatar class="cursor-p" :src="logoUrl" />
       </el-col>
       <el-col :span="12" align="right">
-        <el-dropdown class="cursor-p" trigger="click">
+        <el-dropdown class="cursor-p" trigger="click" v-if="hasLogin">
           <el-row type="flex" align="middle">
             <el-avatar
               :src="userUrl"
@@ -21,6 +21,11 @@
             <el-dropdown-item>Log Out</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
+        <div v-else>
+          <el-link :underline="false" type="dark">
+            <router-link :to="{ name: 'Login' }">Sign in</router-link>
+          </el-link>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -32,7 +37,8 @@ export default {
     return {
       keyword: null,
       logoUrl: 'https://avatar.gitee.com/uploads/group/238434124708134.png',
-      userUrl: 'https://avatar.gitee.com/uploads/82/1542182_Guiwang.png?1563158493'
+      userUrl: 'https://avatar.gitee.com/uploads/82/1542182_Guiwang.png?1563158493',
+      hasLogin: false
     }
   },
   methods: {
@@ -43,8 +49,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .navbar {
-    padding: 6px 10px;
-    background-color: rgb(40, 41, 35);
+.navbar {
+  padding: 6px 10px;
+  background-color: rgb(40, 41, 35);
+
+  .el-link.el-link--dark {
+    color: rgb(126, 127, 123);
+    font-size: 16px;
   }
+
+  .el-link.el-link--dark:hover { color: #FFFFFF; }
+}
 </style>
