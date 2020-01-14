@@ -18,6 +18,20 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/',
+    component: Layout,
+    redirect: { name: 'Launchpad' },
+    children: [
+      {
+        path: 'launchpad',
+        name: 'Launchpad',
+        alias: '/',
+        component: () => import('@/views/launchpad/index'),
+        meta: { title: 'Launchpad' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404' }
 ]
 
