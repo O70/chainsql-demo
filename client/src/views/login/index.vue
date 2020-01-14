@@ -88,7 +88,7 @@ export default {
       text-align: center;
 
       label {
-        font-size: 30px;
+        font-size: 32px;
         font-weight: bold;
         color: rgb(169, 153, 116);
       }
