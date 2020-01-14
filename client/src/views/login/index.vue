@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-row type="flex" justify="center">
-      <el-col :span="8">
+      <el-col :span="7">
         <div class="login-form">
           <div class="title">
             <label>ChainSQL DEMO</label>
@@ -12,7 +12,7 @@
                 prefix-icon="el-icon-user-solid"
                 v-model="form.account"
                 autocomplete="on"
-                placeholder="Account"/>
+                placeholder="Account" />
             </el-form-item>
             <el-form-item>
               <el-input
@@ -21,7 +21,7 @@
                 v-model="form.password"
                 type="password"
                 autocomplete="on"
-                placeholder="Password"/>
+                placeholder="Password" />
             </el-form-item>
           </el-form>
           <el-button class="el-button-dark">Sign in</el-button>
@@ -62,6 +62,7 @@ export default {
       border: 0;
       color: #FFFFFF;
       font-weight: bold;
+      font-size: 18px;
     }
     .el-button-dark:focus, .el-button-dark:hover {
       background-color: rgb(75, 75, 73);
@@ -80,7 +81,7 @@ export default {
     background-color: rgb(24, 25, 21);
     border-radius: 4px;
     padding: 22px;
-    margin-top: 10rem;
+    margin-top: 13rem;
 
     .title {
       margin-bottom: 44px;
