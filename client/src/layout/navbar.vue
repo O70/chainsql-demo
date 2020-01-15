@@ -2,7 +2,9 @@
   <div class="navbar">
     <el-row type="flex" align="middle">
       <el-col :span="12">
-        <el-avatar class="cursor-p" :src="logoUrl" />
+        <router-link to="/">
+          <el-avatar class="cursor-p" :src="logoUrl" />
+        </router-link>
       </el-col>
       <el-col :span="12" align="right">
         <el-dropdown class="cursor-p" trigger="click" v-if="hasLogin">
