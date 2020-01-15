@@ -39,8 +39,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-body {
-  background-color: rgb(40, 41, 35);
-}
-</style>
