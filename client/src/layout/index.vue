@@ -2,7 +2,14 @@
   <div>
     <navbar />
     <div class="main-container">
-      <router-view :key="key"/>
+      <el-row>
+        <el-col :span="4">
+          <router-view name="Sidebar"/>
+        </el-col>
+        <el-col :span="20" class="br-a">
+          <router-view :key="key"/>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -16,13 +23,14 @@ export default {
   },
   computed: {
     key() {
+      console.log(this.$route)
       return this.$route.path
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-  body {
-    background-color: rgb(40, 41, 35);
-  }
+body {
+  background-color: rgb(40, 41, 35);
+}
 </style>

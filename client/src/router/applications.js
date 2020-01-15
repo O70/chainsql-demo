@@ -1,4 +1,5 @@
 import Layout from '@/layout'
+import Sidebar from '@/layout/sidebar'
 
 export default [
   {
@@ -31,7 +32,11 @@ export default [
           path: 'index',
           name: 'Assets',
           alias: '/',
-          component: () => import('@/views/assets/index'),
+          components: {
+            default: () => import('@/views/assets/index'),
+            Sidebar
+          },
+          // component: () => import('@/views/assets/index'),
           meta: { title: 'Assets Management' }
         }
       ]
