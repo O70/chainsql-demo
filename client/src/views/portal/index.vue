@@ -1,5 +1,12 @@
 <template>
   <div class="app-container">
-    Portal
+    <todo content="Portal" />
   </div>
 </template>
+<script>
+export default {
+  components: {
+    todo: () => import('@/views/todo')
+  }
+}
+</script>

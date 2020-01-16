@@ -1,5 +1,12 @@
 <template>
   <div class="app-container">
-    Account Management
+    <todo content="Account Management" />
   </div>
 </template>
+<script>
+export default {
+  components: {
+    todo: () => import('@/views/todo')
+  }
+}
+</script>

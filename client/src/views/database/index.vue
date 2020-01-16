@@ -1,5 +1,12 @@
 <template>
   <div class="app-container">
-    Database Features
+    <todo content="Database Features" />
   </div>
 </template>
+<script>
+export default {
+  components: {
+    todo: () => import('@/views/todo')
+  }
+}
+</script>

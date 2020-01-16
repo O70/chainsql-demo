@@ -1,10 +1,13 @@
 <template>
   <div class="br-a">
-    Sidebar
+    <todo content="Sidebar" />
   </div>
 </template>
 <script>
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  components: {
+    todo: () => import('@/views/todo')
+  }
 }
 </script>
