@@ -1,26 +1,25 @@
 <template>
   <div>
     <navbar />
-    <el-row v-if="sidebar">
-      <el-col :span="4">
-        <sidebar />
-      </el-col>
-      <el-col :span="20" class="br-a">
-        <router-view :key="key"/>
-      </el-col>
-    </el-row>
-    <router-view :key="key" v-else/>
+    <transition name="fade-transform" mode="out-in">
+      <el-row v-if="sidebar">
+        <el-col :span="4">
+          <sidebar />
+        </el-col>
+        <el-col :span="20" class="br-a">
+          <router-view :key="key" />
+        </el-col>
+      </el-row>
+      <router-view :key="key" v-else />
+    </transition>
   </div>
 </template>
 <script>
-import Navbar from './navbar'
-import Sidebar from './sidebar'
-
 export default {
   name: 'Layout',
   components: {
-    Navbar,
-    Sidebar
+    Navbar: () => import('./navbar'),
+    Sidebar: () => import('./sidebar')
   },
   props: {
     sidebar: {
@@ -30,7 +29,6 @@ export default {
   },
   computed: {
     key() {
-      // console.log(this.$route.path)
       return this.$route.path
     }
   },
