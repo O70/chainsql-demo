@@ -4,7 +4,7 @@
     <transition name="fade-transform" mode="out-in">
       <el-row v-if="sidebar">
         <el-col :span="4">
-          <sidebar :height="availableHeight" />
+          <sidebar :height="availableHeight" :route-name="sidebar" />
         </el-col>
         <el-col :span="20" class="br-a">
           <router-view :key="key" :style="style" />
@@ -23,8 +23,8 @@ export default {
   },
   props: {
     sidebar: {
-      type: Boolean,
-      default: false
+      type: String,
+      default: null
     }
   },
   data() {
@@ -44,7 +44,6 @@ export default {
     window.addEventListener('resize', this.handleWindowSize, false)
   },
   updated() {
-    console.log('show', this.sidebar)
     this.handleWindowSize()
   },
   methods: {

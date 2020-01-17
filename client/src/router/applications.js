@@ -6,12 +6,12 @@ export default [
     name: 'Portal',
     router: {
       path: '/portal',
+      name: 'Portal',
       component: Layout,
-      redirect: { name: 'Portal' },
       children: [
         {
           path: 'index',
-          name: 'Portal',
+          name: 'PortalIndex',
           alias: '/',
           component: () => import('@/views/portal/index'),
           meta: { title: 'Portal' }
@@ -24,18 +24,30 @@ export default [
     name: 'Assets',
     router: {
       path: '/assets',
+      name: 'Assets',
       component: Layout,
-      redirect: { name: 'Assets' },
       props: {
-        sidebar: true
+        sidebar: 'Assets'
       },
       children: [
         {
           path: 'index',
-          name: 'Assets',
+          name: 'AssetsIndex',
           alias: '/',
           component: () => import('@/views/assets/index'),
           meta: { title: 'Assets Management' }
+        },
+        {
+          path: 'my',
+          name: 'AssetsMy',
+          component: () => import('@/views/assets/my'),
+          meta: { title: 'My Assets' }
+        },
+        {
+          path: 'browse',
+          name: 'AssetsBrowse',
+          component: () => import('@/views/assets/browse'),
+          meta: { title: 'Assets Browse' }
         }
       ]
     }
@@ -45,12 +57,15 @@ export default [
     name: 'Database',
     router: {
       path: '/database',
+      name: 'Database',
       component: Layout,
-      redirect: { name: 'Database' },
+      props: {
+        sidebar: 'Database'
+      },
       children: [
         {
           path: 'index',
-          name: 'Database',
+          name: 'DatabaseIndex',
           alias: '/',
           component: () => import('@/views/database/index'),
           meta: { title: 'Database Features' }
@@ -63,12 +78,12 @@ export default [
     name: 'Account',
     router: {
       path: '/account',
+      name: 'Account',
       component: Layout,
-      redirect: { name: 'Account' },
       children: [
         {
           path: 'index',
-          name: 'Account',
+          name: 'AccountIndex',
           alias: '/',
           component: () => import('@/views/account/index'),
           meta: { title: 'Account Management' }
