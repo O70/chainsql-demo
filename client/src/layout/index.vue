@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div id="main-layout">
     <navbar />
     <transition name="fade-transform" mode="out-in">
       <el-row v-if="sidebar">
         <el-col :span="4">
-          <sidebar />
+          <sidebar :height="availableHeight" />
         </el-col>
         <el-col :span="20" class="br-a">
-          <router-view :key="key" />
+          <router-view :key="key" :style="style" />
         </el-col>
       </el-row>
-      <router-view :key="key" v-else />
+      <router-view :key="key" v-else :style="style"/>
     </transition>
   </div>
 </template>
@@ -27,13 +27,32 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      availableHeight: 0
+    }
+  },
   computed: {
     key() {
       return this.$route.path
+    },
+    style() {
+      return { height: `${this.availableHeight}px`, overflowY: 'auto' }
     }
+  },
+  created() {
+    window.addEventListener('resize', this.handleWindowSize, false)
   },
   updated() {
     console.log('show', this.sidebar)
+    this.handleWindowSize()
+  },
+  methods: {
+    handleWindowSize() {
+      const winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+      const navHeight = document.querySelector('#main-layout .navbar').clientHeight
+      this.availableHeight = winHeight - navHeight
+    }
   }
 }
 </script>
