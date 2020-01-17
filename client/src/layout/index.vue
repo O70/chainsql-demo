@@ -6,7 +6,7 @@
         <el-col :span="4">
           <sidebar :height="availableHeight" :route-name="sidebar" />
         </el-col>
-        <el-col :span="20" class="br-a">
+        <el-col :span="20">
           <router-view :key="key" :style="style" />
         </el-col>
       </el-row>
