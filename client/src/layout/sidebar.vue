@@ -9,9 +9,13 @@
       <el-menu-item
         v-for="(item, ind) in items"
         :key="ind"
-        :index="item.name">
+        :index="item.name"
+        :route="item">
         <i class="el-icon-menu" />
-        <span slot="title">{{ item.meta.title }}</span>
+        <span slot="title">
+<!--          <router-link :to="item">{{ item.meta.title }}</router-link>-->
+          {{ item.meta.title }}
+        </span>
       </el-menu-item>
     </el-menu>
   </div>
